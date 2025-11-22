@@ -1,0 +1,112 @@
+<!-- احفظ هذا كـ index.html -->
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>موقعي البسيط</title>
+  <style>
+    /* CSS مدمج */
+    :root { --accent: #2563eb; --bg:#f7fbff; --card:#ffffff; }
+    body{
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      margin:0; padding:0; background:var(--bg); color:#0f172a;
+      display:flex; align-items:center; justify-content:center; min-height:100vh;
+    }
+    .container{
+      width:min(880px,94%); padding:28px; background:var(--card);
+      border-radius:16px; box-shadow:0 8px 30px rgba(15,23,42,0.06);
+    }
+    header{ display:flex; align-items:center; gap:16px; }
+    .logo{
+      width:68px; height:68px; border-radius:12px;
+      display:grid; place-items:center; font-weight:700; background:linear-gradient(135deg,var(--accent),#7dd3fc); color:white;
+      box-shadow:0 6px 20px rgba(37,99,235,0.18);
+    }
+    h1{ margin:0; font-size:1.6rem; }
+    p.lead{ margin:8px 0 18px 0; color:#475569; }
+    .grid{ display:grid; gap:12px; grid-template-columns:1fr 220px; align-items:start; }
+    .card{ padding:12px 14px; border-radius:12px; background:#fbfdff; box-shadow:0 4px 18px rgba(2,6,23,0.03); }
+    footer{ margin-top:18px; font-size:0.9rem; color:#64748b; text-align:center; }
+    button.primary{
+      background:var(--accent); color:white; border:none; padding:10px 14px; border-radius:10px; cursor:pointer;
+    }
+    @media (max-width:720px){ .grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="logo">Z-B</div>
+      <div>
+        <h1>مرحباً بك في موقعي</h1>
+        <p class="lead">هذا  موقع يخليك تتواصل معي .</p>
+      </div>
+    </header>
+
+    <div class="grid" style="margin-top:18px;">
+      <div class="card">
+        <h3>عن الموقع</h3>
+        <p>ًهنا مواقع التواصل الخاصة بي .</p>
+<h3>تابعني على وسائل التواصل</h3>
+<a href="https://www.instagram.com/ziyed___ben/" target="_blank" style="
+    display:inline-block;
+    margin-top:8px;
+    padding:10px 16px;
+    background-color:#E1306C;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+">Instagram</a>
+<h3>تابعني على الفيسبوك</h3>
+<a href="https://www.facebook.com/Z%C3%8E%C3%A3d%20Z%C3%AF%C3%A2d" target="_blank" style="
+    display:inline-block;
+    margin-top:8px;
+    padding:10px 16px;
+    background-color:#1877F2; /* لون الفيسبوك */
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+">Facebook</a>
+        <h4 style="margin-top:12px;">نموذج تفاعل</h4>
+        <input id="name" placeholder="اكتب اسمك" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e6eef9;">
+        <div style="margin-top:8px; display:flex; gap:8px;">
+          <button class="primary" id="greetBtn">قول مرحباً</button>
+          <button id="clearBtn" style="padding:8px 12px; border-radius:8px;">مسح</button>
+        </div>
+
+        <p id="greeting" style="margin-top:12px; font-weight:600;"></p>
+      </div>
+
+      <div class="card">
+        <h3>معلومات سريعة</h3>
+        <ul>
+          <li>ziyed_bendali صنع من طرف </li>
+          <li>الحمد لله </li>
+          <li>ًاستغفر الله </li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      صُنع بحب للتعلّم — ّ!
+    </footer>
+  </div>
+
+  <script>
+    // JavaScript بسيط
+    document.getElementById('greetBtn').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const el = document.getElementById('greeting');
+      if(!name) { el.textContent = 'أهلاً — اكتب اسمك أولاً 😉'; return; }
+      el.textContent = `أهلاً يا ${name}! سررت بزيارتك.`; 
+    });
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      document.getElementById('name').value = '';
+      document.getElementById('greeting').textContent = '';
+    });
+  </script>
+</body>
+</html>
